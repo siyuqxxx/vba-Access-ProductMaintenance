@@ -1,0 +1,154 @@
+Option Compare Database
+
+'存储节点ID
+Private paintID As Integer
+
+'存储节点名
+Private pastrNodeName As String
+
+'存储下级节点
+Private pastrNextNode As String
+
+'存储上级节点
+Private pastrPreviousNode As String
+
+'存储关系节点
+Private pastrRelevantNode As String
+
+'存储是否为可跳过节点
+Private pablnIsIgnore As Boolean
+
+'存储节点重要系数
+Private pabyteWeight As Byte
+
+'存储节点顺序
+Private pabyteOrder As Byte
+
+'================ Set ====================================== Set ================
+Private Sub SetpaintID(Inputint As Integer)
+'写入节点ID
+    paintID = Inputint
+
+End Sub
+
+Private Sub SetpastrNodeName(Inputstr As String)
+'写入节点名
+    pastrNodeName = Inputstr
+
+End Sub
+
+Private Sub SetpastrNextNode(Inputstr As String)
+'写入下级节点
+    pastrNextNode = Inputstr
+
+End Sub
+
+Private Sub SetpastrPreviousNode(Inputstr As String)
+'写入上级节点
+    pastrPreviousNode = Inputstr
+
+End Sub
+
+Private Sub SetpastrRelevantNode(Inputstr As String)
+'写入关系节点
+    pastrRelevantNode = Inputstr
+
+End Sub
+
+Private Sub SetpablnIsIgnore(Inputbln As Boolean)
+'写入是否为可跳过节点
+    pablnIsIgnore = Inputbln
+
+End Sub
+
+Private Sub SetpabyteWeight(Inputbyte As Byte)
+'写入节点重要系数
+    pabyteWeight = Inputbyte
+
+End Sub
+
+Private Sub SetpabyteOrder(Inputbyte As Byte)
+'写入节点顺序
+    pabyteOrder = Inputbyte
+
+End Sub
+
+'================ Get ====================================== Get ================
+Public Function GetpaintID() As Integer
+'读出节点ID
+    GetpaintID = paintID
+
+End Function
+
+Public Function GetpastrNodeName() As String
+'读出节点名
+    GetpastrNodeName = pastrNodeName
+
+End Function
+
+Public Function GetpastrNextNode() As String
+'读出下级节点
+    GetpastrNextNode = pastrNextNode
+
+End Function
+
+Public Function GetpastrPreviousNode() As String
+'读出上级节点
+    GetpastrPreviousNode = pastrPreviousNode
+
+End Function
+
+Public Function GetpastrRelevantNode() As String
+'读出关系节点
+    GetpastrRelevantNode = pastrRelevantNode
+
+End Function
+
+Public Function GetpablnIsIgnore() As Boolean
+'读出是否为可跳过节点
+    GetpablnIsIgnore = pablnIsIgnore
+
+End Function
+
+Public Function GetpabyteWeight() As Byte
+'读出节点重要系数
+    GetpabyteWeight = pabyteWeight
+
+End Function
+
+Public Function GetpabyteOrder() As Byte
+'读出节点顺序
+    GetpabyteOrder = pabyteOrder
+
+End Function
+
+'================================================================================
+Public Sub SetPaFormDB(InputID As Integer, rs As DAO.Recordset)
+'
+'    将Access数据库中节点表上，一条指定的节点信息存入cNode中
+'
+'    参数：
+'    InputID As Integer
+'
+'    返回值：
+'    Null
+'
+On Error Resume Next
+
+    rs.FindFirst "ID=" & InputID
+    
+    If rs.RecordCount = 0 Then
+        MsgBox "没有此记录"
+    Else
+        SetpaintID rs!ID
+        SetpastrNodeName rs!节点名
+        SetpastrNextNode rs!下级节点ID
+        SetpastrPreviousNode rs!上级节点ID
+        SetpastrRelevantNode rs!关系节点ID
+        SetpablnIsIgnore rs!是否为可跳过节点
+        SetpabyteWeight rs!节点重要系数
+        SetpabyteOrder rs!节点顺序
+        
+    End If
+
+End Sub
