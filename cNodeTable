@@ -6,6 +6,7 @@ Private pacNodes() As New cNode
 '================ Set ====================================== Set ================
 Public Sub SetpacNodesFormDB()
 '
+'    Access数据库中节点表上，所有的节点信息存入 cNode 动态数组中
 '
 '    参数：
 '    InputID As Integer
