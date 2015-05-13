@@ -1,0 +1,203 @@
+Option Compare Database
+
+'存储ID
+Private paintID As Integer
+
+'存储出港地
+Private pastrDeparture As String
+
+'存储模板名称
+Private pastrDestination As String
+
+'存储开始维护时间
+Private pabyteStratTime As Byte
+
+'存储截止维护时间
+Private pabyteDeadline As Byte
+
+'存储是否暂停维护
+Private pabIsPause As Boolean
+
+'存储平均同行数量
+Private paintAvgSuppliers As Integer
+
+'存储平均产品数量
+Private paintAvgProducts As Integer
+
+'存储平均新增数量
+Private paintAvgAdded As Integer
+
+'存储平均下架数量
+Private paintAvgOff As Integer
+
+'存储平均维护时长
+Private pabyteAvgMaintenanceTime As Byte
+
+'================ Set ====================================== Set ================
+'写入ID
+Private Sub SetpaintID(intInput)
+    paintID = intInput
+
+End Sub
+
+'写入出港地
+Private Sub SetpastrDeparture(strInput)
+    pastrDeparture = strInput
+
+End Sub
+
+'写入模板名称
+Private Sub SetpastrDestination(strInput)
+    pastrDestination = strInput
+
+End Sub
+
+'写入开始维护时间
+Private Sub SetpabyteStratTime(byteInput)
+    pabyteStratTime = byteInput
+
+End Sub
+
+'写入截止维护时间
+Private Sub SetpabyteDeadline(byteInput)
+    pabyteDeadline = byteInput
+
+End Sub
+
+'写入是否暂停维护
+Private Sub SetpabIsPause(bInput)
+    pabIsPause = bInput
+
+End Sub
+
+'写入平均同行数量
+Private Sub SetpaintAvgSuppliers(intInput)
+    paintAvgSuppliers = intInput
+
+End Sub
+
+'写入平均产品数量
+Private Sub SetpaintAvgProducts(intInput)
+    paintAvgProducts = intInput
+
+End Sub
+
+'写入平均新增数量
+Private Sub SetpaintAvgAdded(intInput)
+    paintAvgAdded = intInput
+
+End Sub
+
+'写入平均下架数量
+Private Sub SetpaintAvgOff(intInput)
+    paintAvgOff = intInput
+
+End Sub
+
+'写入平均维护时长
+Private Sub SetpabyteAvgMaintenanceTime(byteInput)
+    pabyteAvgMaintenanceTime = byteInput
+
+End Sub
+
+'================ Get ====================================== Get ================
+'读出ID
+Public Function GetpaintID() As Integer
+    GetpaintID = paintID
+
+End Function
+
+'读出出港地
+Public Function GetpastrDeparture() As String
+    GetpastrDeparture = pastrDeparture
+
+End Function
+
+'读出模板名称
+Public Function GetpastrDestination() As String
+    GetpastrDestination = pastrDestination
+
+End Function
+
+'读出开始维护时间
+Public Function GetpabyteStratTime() As Byte
+    GetpabyteStratTime = pabyteStratTime
+
+End Function
+
+'读出截止维护时间
+Public Function GetpabyteDeadline() As Byte
+    GetpabyteDeadline = pabyteDeadline
+
+End Function
+
+'读出是否暂停维护
+Public Function GetpabIsPause() As Boolean
+    GetpabIsPause = pabIsPause
+
+End Function
+
+'读出平均同行数量
+Public Function GetpaintAvgSuppliers() As Integer
+    GetpaintAvgSuppliers = paintAvgSuppliers
+
+End Function
+
+'读出平均产品数量
+Public Function GetpaintAvgProducts() As Integer
+    GetpaintAvgProducts = paintAvgProducts
+
+End Function
+
+'读出平均新增数量
+Public Function GetpaintAvgAdded() As Integer
+    GetpaintAvgAdded = paintAvgAdded
+
+End Function
+
+'读出平均下架数量
+Public Function GetpaintAvgOff() As Integer
+    GetpaintAvgOff = paintAvgOff
+
+End Function
+
+'读出平均维护时长
+Public Function GetpabyteAvgMaintenanceTime() As Byte
+    GetpabyteAvgMaintenanceTime = pabyteAvgMaintenanceTime
+
+End Function
+
+'================================================================================
+Public Sub SetPaFormDB(InputID As Integer, rs As DAO.Recordset)
+'
+'    将Access数据库中节点表上，一条指定的节点信息存入cTemplate中
+'
+'    参数：
+'    InputID As Integer
+'    rs As DAO.Recordset
+'
+'    返回值：
+'    Null
+'
+On Error Resume Next
+
+    rs.FindFirst "ID=" & InputID
+    
+    If rs.RecordCount = 0 Then
+        MsgBox "没有此记录"
+    Else
+        SetpaintID rs!ID
+        SetpastrDeparture rs!出港地
+        SetpastrDestination rs!模板名称
+        SetpabyteStratTime rs!开始维护时间
+        SetpabyteDeadline rs!截止维护时间
+        SetpabIsPause rs!是否暂停维护
+        SetpaintAvgSuppliers rs!平均同行数量
+        SetpaintAvgProducts rs!平均产品数量
+        SetpaintAvgAdded rs!平均新增数量
+        SetpaintAvgOff rs!平均下架数量
+        SetpabyteAvgMaintenanceTime rs!平均维护时长
+        
+    End If
+
+End Sub
