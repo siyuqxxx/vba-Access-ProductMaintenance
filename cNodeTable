@@ -9,7 +9,7 @@ Public Sub SetpacNodesFormDB()
 '    Access数据库中节点表上，所有的节点信息存入 cNode 动态数组中
 '
 '    参数：
-'    InputID As Integer
+'    NULL
 '
 '    返回值：
 '    Null
@@ -35,4 +35,5 @@ Public Sub SetpacNodesFormDB()
     Set rs = Nothing
     
 End Sub
+
 
