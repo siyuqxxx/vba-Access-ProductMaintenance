@@ -1,5 +1,7 @@
 Option Compare Database
 
+Option Compare Database
+
 '存储节点ID
 Private paintID As Integer
 
@@ -129,6 +131,7 @@ Public Sub SetPaFormDB(InputID As Integer, rs As DAO.Recordset)
 '
 '    参数：
 '    InputID As Integer
+'    rs As DAO.Recordset
 '
 '    返回值：
 '    Null
@@ -152,3 +155,4 @@ On Error Resume Next
     End If
 
 End Sub
+
