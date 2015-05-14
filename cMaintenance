@@ -170,6 +170,7 @@ End Function
 '================ Set ====================================== Set ================
 Public Sub SetpaFormDB(InputID As Integer, rs As DAO.Recordset)
 '
+'    将Access数据库中节点表上，一条指定的节点信息存入cMaintenance中
 '
 '    参数：
 '    InputID As Integer
@@ -200,4 +201,3 @@ On Error Resume Next
     End If
 
 End Sub
-
