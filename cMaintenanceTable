@@ -1,0 +1,38 @@
+Option Compare Database
+
+'存数节点表
+Private pacMaintenances() As New cMaintenance
+
+'================ Set ====================================== Set ================
+Public Sub SetpacMaintenancesFormDB()
+'
+'    将Access数据库中节点表上，所有的节点信息存入 cMaintenance 动态数组中
+'
+'    参数：
+'    NULL
+'
+'    返回值：
+'    Null
+
+    Dim rs As DAO.Recordset
+
+    Set rs = CurrentDb.OpenRecordset("维护记录表", dbOpenDynaset)
+    
+    Dim i As Integer
+    i = 0
+    
+    Do Until rs.EOF
+        i = i + 1
+        ReDim Preserve pacMaintenances(i)
+        
+        pacMaintenances(i).SetpaFormDB i, rs
+        
+        rs.MoveNext
+
+    Loop
+    
+    rs.Close
+    Set rs = Nothing
+    
+End Sub
+
