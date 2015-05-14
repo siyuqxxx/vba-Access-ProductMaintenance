@@ -1,0 +1,203 @@
+Option Compare Database
+
+'存储ID
+Private paintID As Integer
+
+'存储模板维护表ID
+Private paintTmpID As Integer
+
+'存储节点表ID
+Private paintNodeID As Integer
+
+'存储员工ID
+Private paintEpyID As Integer
+
+'存储安排时间
+Private padateStratTime As Date
+
+'存储截止时间
+Private padateDeadline As Date
+
+'存储实际完成时间
+Private padateCompletionTime As Date
+
+'存储额外奖励时间
+Private padateBonusTime As Date
+
+'存储备注
+Private pastrRemarkes As String
+
+'存储完成奖励
+Private paintCompleteReward As Integer
+
+'存储额外奖励
+Private paintBonus As Integer
+
+'================ Set ====================================== Set ================
+'写入ID
+Private Sub SetpaintID(intInput)
+    paintID = intInput
+
+End Sub
+
+'写入模板维护表ID
+Private Sub SetpaintTmpID(intInput)
+    paintTmpID = intInput
+
+End Sub
+
+'写入节点表ID
+Private Sub SetpaintNodeID(intInput)
+    paintNodeID = intInput
+
+End Sub
+
+'写入员工ID
+Private Sub SetpaintEpyID(intInput)
+    paintEpyID = intInput
+
+End Sub
+
+'写入安排时间
+Private Sub SetpadateStratTime(dateInput)
+    padateStratTime = dateInput
+
+End Sub
+
+'写入截止时间
+Private Sub SetpadateDeadline(dateInput)
+    padateDeadline = dateInput
+
+End Sub
+
+'写入实际完成时间
+Private Sub SetpadateCompletionTime(dateInput)
+    padateCompletionTime = dateInput
+
+End Sub
+
+'写入额外奖励时间
+Private Sub SetpadateBonusTime(dateInput)
+    padateBonusTime = dateInput
+
+End Sub
+
+'写入备注
+Private Sub SetpastrRemarkes(strInput)
+    pastrRemarkes = strInput
+
+End Sub
+
+'写入完成奖励
+Private Sub SetpaintCompleteReward(intInput)
+    paintCompleteReward = intInput
+
+End Sub
+
+'写入额外奖励
+Private Sub SetpaintBonus(intInput)
+    paintBonus = intInput
+
+End Sub
+
+'================ Get ====================================== Get ================
+'读出ID
+Public Function GetpaintID() As Integer
+    GetpaintID = paintID
+
+End Function
+
+'读出模板维护表ID
+Public Function GetpaintTmpID() As Integer
+    GetpaintTmpID = paintTmpID
+
+End Function
+
+'读出节点表ID
+Public Function GetpaintNodeID() As Integer
+    GetpaintNodeID = paintNodeID
+
+End Function
+
+'读出员工ID
+Public Function GetpaintEpyID() As Integer
+    GetpaintEpyID = paintEpyID
+
+End Function
+
+'读出安排时间
+Public Function GetpadateStratTime() As Date
+    GetpadateStratTime = padateStratTime
+
+End Function
+
+'读出截止时间
+Public Function GetpadateDeadline() As Date
+    GetpadateDeadline = padateDeadline
+
+End Function
+
+'读出实际完成时间
+Public Function GetpadateCompletionTime() As Date
+    GetpadateCompletionTime = padateCompletionTime
+
+End Function
+
+'读出额外奖励时间
+Public Function GetpadateBonusTime() As Date
+    GetpadateBonusTime = padateBonusTime
+
+End Function
+
+'读出备注
+Public Function GetpastrRemarkes() As String
+    GetpastrRemarkes = pastrRemarkes
+
+End Function
+
+'读出完成奖励
+Public Function GetpaintCompleteReward() As Integer
+    GetpaintCompleteReward = paintCompleteReward
+
+End Function
+
+'读出额外奖励
+Public Function GetpaintBonus() As Integer
+    GetpaintBonus = paintBonus
+
+End Function
+
+'================ Set ====================================== Set ================
+Public Sub SetpaFormDB(InputID As Integer, rs As DAO.Recordset)
+'
+'
+'    参数：
+'    InputID As Integer
+'    rs As DAO.Recordset
+'
+'    返回值：
+'    Null
+'
+On Error Resume Next
+
+    rs.FindFirst "ID=" & InputID
+    
+    If rs.RecordCount = 0 Then
+        MsgBox "没有此记录"
+    Else
+        SetpaintID rs!ID
+        SetpaintTmpID rs!模板维护表ID
+        SetpaintNodeID rs!节点表ID
+        SetpaintEpyID rs!员工ID
+        SetpadateStratTime rs!安排时间
+        SetpadateDeadline rs!截止时间
+        SetpadateCompletionTime rs!实际完成时间
+        SetpadateBonusTime rs!额外奖励时间
+        SetpastrRemarkes rs!备注
+        SetpaintCompleteReward rs!完成奖励
+        SetpaintBonus rs!额外奖励
+        
+    End If
+
+End Sub
+
