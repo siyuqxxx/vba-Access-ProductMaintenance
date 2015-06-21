@@ -207,3 +207,45 @@ On Error Resume Next
     End If
 
 End Sub
+
+
+Public Sub AddcMToDB()
+'
+'    将cMaintenance中的数据，新增至Access数据库中
+'
+'    参数：
+'    Null
+'
+'    返回值：
+'    Null
+'
+'On Error Resume Next
+    Dim rs As dao.Recordset
+
+    Set rs = CurrentDb.OpenRecordset("维护记录表")
+
+    rs.MoveLast
+    paintID = rs!ID + 1
+    rs.AddNew
+
+    rs!ID = paintID
+    rs!模板维护表ID = paintTmpID
+    rs!节点表ID = paintNodeID
+    rs!员工ID = paintEpyID
+    If Not padateStratTime = 0 Then rs!安排时间 = padateStratTime
+    If Not padateDeadline = 0 Then rs!截止时间 = padateDeadline
+    If Not padateCompletionTime = 0 Then rs!实际完成时间 = padateCompletionTime
+    If Not padateBonusTime = 0 Then rs!额外奖励时间 = padateBonusTime
+    rs!备注 = pastrRemarkes
+    rs!完成奖励 = paintCompleteReward
+    rs!额外奖励 = paintBonus
+
+    rs.Update
+
+    rs.Close
+
+    Set rs = Nothing
+
+    MsgBox "ok"
+
+End Sub
