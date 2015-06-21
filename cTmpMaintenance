@@ -1,3 +1,9 @@
+'================================================================================
+'    模板维护 支持类
+'
+'================================================================================
+
+
 
 Option Compare Database
 
@@ -26,7 +32,7 @@ Private pastrRemarks As String
 Private padateStratTime As Date
 
 '存储截止维护时间
-Private padateDeadLine As Date
+Private padateDeadline As Date
 
 '================ Set ====================================== Set ================
 '写入ID
@@ -78,8 +84,8 @@ Private Sub SetpadateStratTime(dateInput)
 End Sub
 
 '写入截止维护时间
-Private Sub SetpadateDeadLine(dateInput)
-    padateDeadLine = dateInput
+Private Sub SetpadateDeadline(dateInput)
+    padateDeadline = dateInput
 
 End Sub
 
@@ -133,13 +139,13 @@ Public Function GetpadateStratTime() As Date
 End Function
 
 '读出截止维护时间
-Public Function GetpadateDeadLine() As Date
-    GetpadateDeadLine = padateDeadLine
+Public Function GetpadateDeadline() As Date
+    GetpadateDeadline = padateDeadline
 
 End Function
 
 '================================================================================
-Public Sub SetPaFormDB(InputID As Integer, rs As DAO.Recordset)
+Public Sub SetpaFormDB(InputID As Integer, rs As DAO.Recordset)
 '
 '    将Access数据库中节点表上，一条指定的节点信息存入cTmpMaintenance中
 '
@@ -165,7 +171,7 @@ On Error Resume Next
         SetpabyteSuppliers rs!同行数量
         SetpastrRemarks rs!备注
         SetpadateStratTime rs!开始维护时间
-        SetpadateDeadLine rs!截止维护时间
+        SetpadateDeadline rs!截止维护时间
         
     End If
 

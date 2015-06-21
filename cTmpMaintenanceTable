@@ -1,6 +1,12 @@
+'================================================================================
+'    模板维护表 支持类
+'
+'================================================================================
+
+
 Option Compare Database
 
-'存数节点表
+'存储模板维护表
 Private pacTmpMaintenances() As New cTmpMaintenance
 
 '================ Set ====================================== Set ================
@@ -25,7 +31,7 @@ Public Sub SetpacTmpMaintenancesFormDB()
         i = i + 1
         ReDim Preserve pacTmpMaintenances(i)
         
-        pacTmpMaintenances(i).SetPaFormDB i, rs
+        pacTmpMaintenances(i).SetpaFormDB i, rs
         
         rs.MoveNext
 

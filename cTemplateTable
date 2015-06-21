@@ -1,6 +1,12 @@
+'================================================================================
+'    模板表 支持类
+'
+'================================================================================
+
+
 Option Compare Database
 
-'存数节点表
+'存储模板表
 Private pacTemplates() As New cTemplate
 
 '================ Set ====================================== Set ================
@@ -25,7 +31,7 @@ Public Sub SetpacTemplatesFormDB()
         i = i + 1
         ReDim Preserve pacTemplates(i)
         
-        pacTemplates(i).SetPaFormDB i, rs
+        pacTemplates(i).SetpaFormDB i, rs
         
         rs.MoveNext
 

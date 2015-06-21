@@ -1,4 +1,8 @@
-Option Compare Database
+'================================================================================
+'    节点 支持类
+'
+'================================================================================
+
 
 Option Compare Database
 
@@ -125,7 +129,7 @@ Public Function GetpabyteOrder() As Byte
 End Function
 
 '================================================================================
-Public Sub SetPaFormDB(InputID As Integer, rs As DAO.Recordset)
+Public Sub SetpaFormDB(InputID As Integer, rs As DAO.Recordset)
 '
 '    将Access数据库中节点表上，一条指定的节点信息存入cNode中
 '
