@@ -129,7 +129,7 @@ Public Function GetpabyteOrder() As Byte
 End Function
 
 '================================================================================
-Public Sub SetpaFormDB(InputID As Integer, rs As DAO.Recordset)
+Public Sub SetpaFormDB(InputID As Integer, rs As dao.Recordset)
 '
 '    将Access数据库中节点表上，一条指定的节点信息存入cNode中
 '
@@ -143,7 +143,7 @@ Public Sub SetpaFormDB(InputID As Integer, rs As DAO.Recordset)
 On Error Resume Next
 
     rs.FindFirst "ID=" & InputID
-    
+
     If rs.RecordCount = 0 Then
         MsgBox "没有此记录"
     Else
@@ -155,8 +155,7 @@ On Error Resume Next
         SetpablnIsIgnore rs!是否为可跳过节点
         SetpabyteWeight rs!节点重要系数
         SetpabyteOrder rs!节点顺序
-        
+
     End If
 
 End Sub
-

@@ -21,26 +21,24 @@ Public Sub SetpacNodesFormDB()
 '    返回值：
 '    Null
 
-    Dim rs As DAO.Recordset
+    Dim rs As dao.Recordset
 
     Set rs = CurrentDb.OpenRecordset("节点表", dbOpenDynaset)
-    
+
     Dim i As Integer
     i = 0
-    
+
     Do Until rs.EOF
         i = i + 1
         ReDim Preserve pacNodes(i)
-        
+
         pacNodes(i).SetpaFormDB i, rs
-        
+
         rs.MoveNext
 
     Loop
-    
+
     rs.Close
     Set rs = Nothing
-    
+
 End Sub
-
-

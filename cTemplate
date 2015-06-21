@@ -174,7 +174,7 @@ Public Function GetpabyteAvgMaintenanceTime() As Byte
 End Function
 
 '================================================================================
-Public Sub SetpaFormDB(InputID As Integer, rs As DAO.Recordset)
+Public Sub SetpaFormDB(InputID As Integer, rs As dao.Recordset)
 '
 '    将Access数据库中节点表上，一条指定的节点信息存入cTemplate中
 '
@@ -188,7 +188,7 @@ Public Sub SetpaFormDB(InputID As Integer, rs As DAO.Recordset)
 On Error Resume Next
 
     rs.FindFirst "ID=" & InputID
-    
+
     If rs.RecordCount = 0 Then
         MsgBox "没有此记录"
     Else
@@ -203,7 +203,7 @@ On Error Resume Next
         SetpaintAvgAdded rs!平均新增数量
         SetpaintAvgOff rs!平均下架数量
         SetpabyteAvgMaintenanceTime rs!平均维护时长
-        
+
     End If
 
 End Sub

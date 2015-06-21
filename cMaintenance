@@ -174,7 +174,7 @@ Public Function GetpaintBonus() As Integer
 End Function
 
 '================ Set ====================================== Set ================
-Public Sub SetpaFormDB(InputID As Integer, rs As DAO.Recordset)
+Public Sub SetpaFormDB(InputID As Integer, rs As dao.Recordset)
 '
 '    将Access数据库中节点表上，一条指定的节点信息存入cMaintenance中
 '
@@ -188,7 +188,7 @@ Public Sub SetpaFormDB(InputID As Integer, rs As DAO.Recordset)
 On Error Resume Next
 
     rs.FindFirst "ID=" & InputID
-    
+
     If rs.RecordCount = 0 Then
         MsgBox "没有此记录"
     Else
@@ -203,7 +203,7 @@ On Error Resume Next
         SetpastrRemarkes rs!备注
         SetpaintCompleteReward rs!完成奖励
         SetpaintBonus rs!额外奖励
-        
+
     End If
 
 End Sub

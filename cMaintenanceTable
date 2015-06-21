@@ -20,25 +20,24 @@ Public Sub SetpacMaintenancesFormDB()
 '    返回值：
 '    Null
 
-    Dim rs As DAO.Recordset
+    Dim rs As dao.Recordset
 
     Set rs = CurrentDb.OpenRecordset("维护记录表", dbOpenDynaset)
-    
+
     Dim i As Integer
     i = 0
-    
+
     Do Until rs.EOF
         i = i + 1
         ReDim Preserve pacMaintenances(i)
-        
+
         pacMaintenances(i).SetpaFormDB i, rs
-        
+
         rs.MoveNext
 
     Loop
-    
+
     rs.Close
     Set rs = Nothing
-    
-End Sub
 
+End Sub
