@@ -10,7 +10,7 @@ Option Compare Database
 Private paintID As Integer
 
 '存储模板维护表ID
-Private paintTmpID As Integer
+Private paintTmpMID As Integer
 
 '存储节点表ID
 Private paintNodeID As Integer
@@ -47,8 +47,8 @@ Public Sub SetpaintID(intInput)
 End Sub
 
 '写入模板维护表ID
-Public Sub SetpaintTmpID(intInput)
-    paintTmpID = intInput
+Public Sub SetpaintTmpMID(intInput)
+    paintTmpMID = intInput
 
 End Sub
 
@@ -114,8 +114,8 @@ Public Function GetpaintID() As Integer
 End Function
 
 '读出模板维护表ID
-Public Function GetpaintTmpID() As Integer
-    GetpaintTmpID = paintTmpID
+Public Function GetpaintTmpMID() As Integer
+    GetpaintTmpMID = paintTmpMID
 
 End Function
 
@@ -193,7 +193,7 @@ On Error Resume Next
         MsgBox "没有此记录"
     Else
         SetpaintID rs!ID
-        SetpaintTmpID rs!模板维护表ID
+        SetpaintTmpMID rs!模板维护表ID
         SetpaintNodeID rs!节点表ID
         SetpaintEpyID rs!员工ID
         SetpadateStratTime rs!安排时间
@@ -229,9 +229,9 @@ Public Sub AddcMToDB()
     rs.AddNew
 
     rs!ID = paintID
-    rs!模板维护表ID = paintTmpID
+    rs!模板维护表ID = paintTmpMID
     rs!节点表ID = paintNodeID
-    rs!员工ID = paintEpyID
+    If Not paintEpyID = 0 Then rs!员工ID = paintEpyID
     If Not padateStratTime = 0 Then rs!安排时间 = padateStratTime
     If Not padateDeadline = 0 Then rs!截止时间 = padateDeadline
     If Not padateCompletionTime = 0 Then rs!实际完成时间 = padateCompletionTime
