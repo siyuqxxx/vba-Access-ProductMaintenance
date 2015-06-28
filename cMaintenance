@@ -41,67 +41,67 @@ Private paintBonus As Integer
 
 '================ Set ====================================== Set ================
 '写入ID
-Private Sub SetpaintID(intInput)
+Public Sub SetpaintID(intInput)
     paintID = intInput
 
 End Sub
 
 '写入模板维护表ID
-Private Sub SetpaintTmpID(intInput)
+Public Sub SetpaintTmpID(intInput)
     paintTmpID = intInput
 
 End Sub
 
 '写入节点表ID
-Private Sub SetpaintNodeID(intInput)
+Public Sub SetpaintNodeID(intInput)
     paintNodeID = intInput
 
 End Sub
 
 '写入员工ID
-Private Sub SetpaintEpyID(intInput)
+Public Sub SetpaintEpyID(intInput)
     paintEpyID = intInput
 
 End Sub
 
 '写入安排时间
-Private Sub SetpadateStratTime(dateInput)
+Public Sub SetpadateStratTime(dateInput)
     padateStratTime = dateInput
 
 End Sub
 
 '写入截止时间
-Private Sub SetpadateDeadline(dateInput)
+Public Sub SetpadateDeadline(dateInput)
     padateDeadline = dateInput
 
 End Sub
 
 '写入实际完成时间
-Private Sub SetpadateCompletionTime(dateInput)
+Public Sub SetpadateCompletionTime(dateInput)
     padateCompletionTime = dateInput
 
 End Sub
 
 '写入额外奖励时间
-Private Sub SetpadateBonusTime(dateInput)
+Public Sub SetpadateBonusTime(dateInput)
     padateBonusTime = dateInput
 
 End Sub
 
 '写入备注
-Private Sub SetpastrRemarkes(strInput)
-    pastrRemarkes = strInput
+Public Sub SetpastrRemarkes(strInput)
+    astrRemarkes = strInput
 
 End Sub
 
 '写入完成奖励
-Private Sub SetpaintCompleteReward(intInput)
+Public Sub SetpaintCompleteReward(intInput)
     paintCompleteReward = intInput
 
 End Sub
 
 '写入额外奖励
-Private Sub SetpaintBonus(intInput)
+Public Sub SetpaintBonus(intInput)
     paintBonus = intInput
 
 End Sub
@@ -174,7 +174,7 @@ Public Function GetpaintBonus() As Integer
 End Function
 
 '================ Set ====================================== Set ================
-Public Sub SetpaFormDB(InputID As Integer, rs As dao.Recordset)
+Public Sub SetpaFormDB(InputID As Integer, rs As DAO.Recordset)
 '
 '    将Access数据库中节点表上，一条指定的节点信息存入cMaintenance中
 '
@@ -220,7 +220,7 @@ Public Sub AddcMToDB()
 '    Null
 '
 'On Error Resume Next
-    Dim rs As dao.Recordset
+    Dim rs As DAO.Recordset
 
     Set rs = CurrentDb.OpenRecordset("维护记录表")
 
