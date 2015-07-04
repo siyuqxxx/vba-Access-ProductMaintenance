@@ -145,7 +145,7 @@ Public Function GetpadateDeadline() As Date
 End Function
 
 '================================================================================
-Public Sub SetpaFormDB(InputID As Integer, rs As dao.Recordset)
+Public Sub SetpaFormDB(InputID As Integer, rs As DAO.Recordset)
 '
 '    将Access数据库中节点表上，一条指定的节点信息存入cTmpMaintenance中
 '
@@ -188,7 +188,7 @@ Public Sub AddcTmpMToDB()
 '    Null
 '
 'On Error Resume Next
-    Dim rs As dao.Recordset
+    Dim rs As DAO.Recordset
 
     Set rs = CurrentDb.OpenRecordset("模板维护表")
 
@@ -212,6 +212,6 @@ Public Sub AddcTmpMToDB()
 
     Set rs = Nothing
 
-    MsgBox "ok"
+    MsgBox "新建模板维护表记录 ok！"
 
 End Sub
