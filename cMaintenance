@@ -27,17 +27,20 @@ Private padateDeadline As Date
 '存储实际完成时间
 Private padateCompletionTime As Date
 
-'存储额外奖励时间
-Private padateBonusTime As Date
+'存储完成时限
+Private padateTimeLine As Integer
 
 '存储备注
 Private pastrRemarkes As String
 
-'存储完成奖励
+'存储实际完成奖励
 Private paintCompleteReward As Integer
 
-'存储额外奖励
+'存储实际额外奖励
 Private paintBonus As Integer
+
+'存储总积分
+Private paintTotalIntegral As Integer
 
 '================ Set ====================================== Set ================
 '写入ID
@@ -82,27 +85,33 @@ Public Sub SetpadateCompletionTime(dateInput)
 
 End Sub
 
-'写入额外奖励时间
-Public Sub SetpadateBonusTime(dateInput)
-    padateBonusTime = dateInput
+'写入完成时限
+Public Sub SetpadateTimeLine(dateInput)
+    padateTimeLine = dateInput
 
 End Sub
 
 '写入备注
 Public Sub SetpastrRemarkes(strInput)
-    astrRemarkes = strInput
+    pastrRemarkes = strInput
 
 End Sub
 
-'写入完成奖励
+'写入实际完成奖励
 Public Sub SetpaintCompleteReward(intInput)
     paintCompleteReward = intInput
 
 End Sub
 
-'写入额外奖励
+'写入实际额外奖励
 Public Sub SetpaintBonus(intInput)
     paintBonus = intInput
+
+End Sub
+
+'写入总积分
+Public Sub SetpaintTotalIntegral(intInput)
+    paintTotalIntegral = intInput
 
 End Sub
 
@@ -149,9 +158,9 @@ Public Function GetpadateCompletionTime() As Date
 
 End Function
 
-'读出额外奖励时间
-Public Function GetpadateBonusTime() As Date
-    GetpadateBonusTime = padateBonusTime
+'读出完成时限
+Public Function GetpadateTimeLine() As Date
+    GetpadateTimeLine = padateTimeLine
 
 End Function
 
@@ -161,15 +170,21 @@ Public Function GetpastrRemarkes() As String
 
 End Function
 
-'读出完成奖励
+'读出实际完成奖励
 Public Function GetpaintCompleteReward() As Integer
     GetpaintCompleteReward = paintCompleteReward
 
 End Function
 
-'读出额外奖励
+'读出实际额外奖励
 Public Function GetpaintBonus() As Integer
     GetpaintBonus = paintBonus
+
+End Function
+
+'读出总积分
+Public Function GetpaintTotalIntegral() As Integer
+    GetpaintTotalIntegral = paintTotalIntegral
 
 End Function
 
@@ -199,10 +214,11 @@ On Error Resume Next
         SetpadateStratTime rs!安排时间
         SetpadateDeadline rs!截止时间
         SetpadateCompletionTime rs!实际完成时间
-        SetpadateBonusTime rs!额外奖励时间
+        SetpadateTimeLine rs!完成时限
         SetpastrRemarkes rs!备注
-        SetpaintCompleteReward rs!完成奖励
-        SetpaintBonus rs!额外奖励
+        SetpaintCompleteReward rs!实际完成奖励
+        SetpaintBonus rs!实际额外奖励
+        SetpaintTotalIntegral rs!总积分
 
     End If
 
@@ -235,10 +251,11 @@ Public Sub AddcMToDB()
     If Not padateStratTime = 0 Then rs!安排时间 = padateStratTime
     If Not padateDeadline = 0 Then rs!截止时间 = padateDeadline
     If Not padateCompletionTime = 0 Then rs!实际完成时间 = padateCompletionTime
-    If Not padateBonusTime = 0 Then rs!额外奖励时间 = padateBonusTime
+    rs!完成时限 = padateTimeLine
     rs!备注 = pastrRemarkes
-    rs!完成奖励 = paintCompleteReward
-    rs!额外奖励 = paintBonus
+    rs!实际完成奖励 = paintCompleteReward
+    rs!实际额外奖励 = paintBonus
+    rs!总积分 = paintTotalIntegral
 
     rs.Update
 
